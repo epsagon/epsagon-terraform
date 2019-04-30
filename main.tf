@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "epsagon-trail" {
-  bucket = "epsagon-trail-bucket"
+  bucket_prefix = "epsagon-trail-bucket"
 
   force_destroy = true
 
