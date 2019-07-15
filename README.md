@@ -30,3 +30,7 @@ To find the right values to set for the three Epsagon parameters, go to your [Ep
 Then copy the three values in your Terraform file:
 
 ![CloudFormation parameters](./img/cloudformation_params.png)
+
+## IAM Requirements
+
+See `iam-policy.json` in this repository for an IAM policy that is sufficient to allow the terraform module to execute
