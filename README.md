@@ -23,11 +23,11 @@ Run Terraform, all resources will be created and Epsagon will be configured with
 
 ## Parameters
 
-To find the right values to set for the three Epsagon parameters, go to your [Epsagon settings](https://dashboard.epsagon.com/settings/cloudformation) and click the CloudFormation deploy button:
+To find the right value to set for the External ID Epsagon parameter, go to your [Epsagon settings](https://dashboard.epsagon.com/settings/cloudformation) and click the CloudFormation deploy button:
 
 ![Epsagon dashboard](./img/epsagon_dashboard.png)
 
-Then copy the three values in your Terraform file:
+Then copy the ExternalID into your Terraform file:
 
 ![CloudFormation parameters](./img/cloudformation_params.png)
 
