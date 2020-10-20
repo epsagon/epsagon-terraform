@@ -10,7 +10,7 @@ variable "region" {}
 
 resource "aws_s3_bucket" "epsagon_trail_bucket" {
   bucket = "epsagon-trail-bucket"
-  acl = "private"
+  acl    = "private"
   lifecycle_rule {
     expiration {
       days = 1
@@ -54,12 +54,12 @@ POLICY
 }
 
 resource "aws_cloudwatch_log_group" "epsagon_monitoring_log_group" {
-  name = "epsagon_monitoring_log_group"
+  name              = "epsagon_monitoring_log_group"
   retention_in_days = 1
 }
 
 resource "aws_iam_role" "epsagon_cloudtrail_to_cloudwatch_logs_role" {
-  name = "epsagon_cloudtrail_to_cloudwatch_logs_role"
+  name               = "epsagon_cloudtrail_to_cloudwatch_logs_role"
   assume_role_policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -81,7 +81,7 @@ POLICY
 }
 
 resource "aws_iam_policy" "epsagon_cloudtrail_to_cloudwatch_logs_role_policy" {
-  name = "epsagon_cloudtrail_to_cloudwatch_logs_role_policy"
+  name   = "epsagon_cloudtrail_to_cloudwatch_logs_role_policy"
   policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -100,16 +100,16 @@ POLICY
 }
 
 resource "aws_iam_role_policy_attachment" "epsagon_cloudtrail_to_cloudwatch_logs_role_policy_attachment" {
-  role = aws_iam_role.epsagon_cloudtrail_to_cloudwatch_logs_role.name
+  role       = aws_iam_role.epsagon_cloudtrail_to_cloudwatch_logs_role.name
   policy_arn = aws_iam_policy.epsagon_cloudtrail_to_cloudwatch_logs_role_policy.arn
 }
 
 resource "aws_cloudtrail" "epsagon_cloudtrail" {
-  name = "epsagon_monitoring_trail"
-  s3_bucket_name = local.epsagon_trail_bucket_name
+  name                       = "epsagon_monitoring_trail"
+  s3_bucket_name             = local.epsagon_trail_bucket_name
   cloud_watch_logs_group_arn = aws_cloudwatch_log_group.epsagon_monitoring_log_group.arn
-  cloud_watch_logs_role_arn = aws_iam_role.epsagon_cloudtrail_to_cloudwatch_logs_role.arn
-  is_multi_region_trail = true
+  cloud_watch_logs_role_arn  = aws_iam_role.epsagon_cloudtrail_to_cloudwatch_logs_role.arn
+  is_multi_region_trail      = true
   event_selector {
     read_write_type = "WriteOnly"
   }
@@ -117,11 +117,11 @@ resource "aws_cloudtrail" "epsagon_cloudtrail" {
     aws_s3_bucket_policy.epsagon_trail_bucket_policy,
     aws_s3_bucket.epsagon_trail_bucket
   ]
-    
+
 }
 
 resource "aws_iam_role" "epsagon_role" {
-  name = "epsagon_role"
+  name               = "epsagon_role"
   assume_role_policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -158,7 +158,7 @@ POLICY
 }
 
 resource "aws_iam_policy" "epsagon_role_policy" {
-  name = "epsagon_role_policy"
+  name   = "epsagon_role_policy"
   policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -304,6 +304,6 @@ POLICY
 }
 
 resource "aws_iam_role_policy_attachment" "epsagon_role_policy_attachment" {
-  role = aws_iam_role.epsagon_role.name
+  role       = aws_iam_role.epsagon_role.name
   policy_arn = aws_iam_policy.epsagon_role_policy.arn
 }
