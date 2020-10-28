@@ -166,130 +166,49 @@ resource "aws_iam_policy" "epsagon_role_policy" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "logs:PutSubscriptionFilter",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "logs:DescribeSubscriptionFilters",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "logs:DeleteSubscriptionFilter",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "logs:FilterLogEvents",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "logs:DescribeLogStreams",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "logs:DescribeLogGroups",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "lambda:List*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "lambda:Get*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "batch:Describe*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "xray:Get*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "xray:BatchGet*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "apigateway:GET",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "states:List*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "states:Get*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "states:Describe*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "cloudwatch:Get*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "cloudwatch:List*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "events:PutTargets",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "events:PutRule",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "ecs:Describe*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "ecs:List*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "ec2:Describe*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "ec2:Get*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "iam:ListAccountAliases",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
       "Action": [
-          "logs:CreateLogGroup",
-          "logs:CreateLogStream",
-          "logs:PutLogEvents"
+        "apigateway:GET",
+        "appsync:GetDataSource",
+        "appsync:GetGraphqlApi",
+        "appsync:GetIntrospectionSchema",
+        "appsync:GetResolver",
+        "appsync:GetSchemaCreationStatus",
+        "appsync:GetType",
+        "appsync:GraphQL",
+        "appsync:ListApiKeys",
+        "appsync:ListDataSources",
+        "appsync:ListGraphqlApis",
+        "appsync:ListResolvers",
+        "appsync:ListTypes",
+        "appsync:UpdateGraphqlAPI",
+        "appsync:UpdateResolver",
+        "appsync:UpdateType",        
+        "batch:Describe*",
+        "cloudwatch:Get*",
+        "cloudwatch:List*",
+        "ec2:Describe*",
+        "ec2:Get*",
+        "ecs:Describe*",
+        "ecs:List*",
+        "events:PutRule",
+        "events:PutTargets",
+        "iam:ListAccountAliases",
+        "lambda:Get*",
+        "lambda:List*",
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:DeleteSubscriptionFilter",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:DescribeSubscriptionFilters",
+        "logs:FilterLogEvents",
+        "logs:PutLogEvents",
+        "logs:PutSubscriptionFilter",
+        "states:Describe*",
+        "states:Get*",
+        "states:List*",
+        "xray:BatchGet*",
+        "xray:Get*"
       ],
       "Resource": "*"
     },
